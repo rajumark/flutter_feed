@@ -8,6 +8,10 @@
       "title": "Flutter Awesome",
       "url": "https://flutterawesome.com/rss/",
       "icon": "https://flutterawesome.com/favicon.png"
+    },{
+      "title": "Feedburner Kotlin",
+      "url": "https://feeds.feedburner.com/kotlin",
+      "icon": "https://blog.jetbrains.com/wp-content/uploads/2024/01/cropped-mstile-310x310-1-32x32.png"
     }
   ]
 }
