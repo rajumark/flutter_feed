@@ -4,6 +4,10 @@
       "title": "Dave Leeds on Kotlin - typealias.com",
       "url": "https://typealias.com/index.xml",
       "icon": "https://typealias.com/favicon.ico"
+    },{
+      "title": "Flutter Awesome",
+      "url": "https://flutterawesome.com/rss/",
+      "icon": "https://flutterawesome.com/favicon.png"
     }
   ]
 }
