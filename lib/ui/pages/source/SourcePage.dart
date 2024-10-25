@@ -6,6 +6,7 @@ import 'dart:convert';
 import 'package:flutter_feed/data/Const.dart';
 import 'package:flutter_feed/database/DbManager.dart';
 import 'package:flutter_feed/database/Model.dart';
+import 'package:flutter_feed/ui/pages/feed/FeedPreviewPage.dart';
 import 'package:flutter_feed/ui/pages/source/FeedSource.dart';
 import 'package:http/http.dart' as http;
 
@@ -66,8 +67,8 @@ class _SourcePageState extends State<SourcePage> {
   }
 
   syncDb() async {
-    var list=await dbManager.getModelList();
-    setState(()   {
+    var list = await dbManager.getModelList();
+    setState(() {
       feedItems = list;
     });
   }
@@ -81,14 +82,6 @@ class _SourcePageState extends State<SourcePage> {
 
   Future<void> _handleRefresh() async {
     fetchFeed();
-  }
-
-  int toggleInt(int a) {
-    if (a == 1) {
-      return 0;
-    } else {
-      return 1;
-    }
   }
 
   Future<void> _toggleFollow(Model modelSource) async {
@@ -135,12 +128,29 @@ class _SourcePageState extends State<SourcePage> {
                             ? "UnFollow"
                             : "Follow"),
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  FeedPreviewPage(feedItems[index])),
+                        ).then((value) {
+                          syncDb();
+                        });
+                      },
                     );
                   },
                 ),
               ),
       ),
     );
+  }
+}
+
+int toggleInt(int a) {
+  if (a == 1) {
+    return 0;
+  } else {
+    return 1;
   }
 }
